@@ -22,10 +22,10 @@ jobs:
         with:
             context: frontend
             push: true
-            tags: a01258386/4640frontend:latest  # ADJUST WITH YOUR USER NAME
+            tags: a01258386/demo4640frontend:latest  # ADJUST WITH YOUR USER NAME
       - name: Build and push backend image 
         uses: docker/build-push-action@v3
         with:
             context: backend
             push: true
-            tags: a01258386/4640backend:latest  # ADJUST WITH YOUR USER NAME
+            tags: a01258386/demo4640backend:latest  # ADJUST WITH YOUR USER NAME
