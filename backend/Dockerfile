@@ -6,7 +6,7 @@ USER backend
 
 WORKDIR /app
 
-RUN wget -qq https://github.com/dukebao/ansible_project/raw/main/basefile/acit4640-py-mysql-master.zip -O /tmp/source.zip
+RUN wget -qq https://github.com/A01258386/AnsibleCICD/raw/main/basefile/acit4640-py-mysql-master.zip -O /tmp/source.zip
 RUN unzip /tmp/source.zip
 RUN cp -r acit4640-py-mysql-master/backend /app/src
 RUN rm -rf acit4640-py-mysql-master
