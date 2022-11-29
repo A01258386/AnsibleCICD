@@ -1,0 +1,33 @@
+---
+version: '3.3'
+
+services:
+  db: 
+    image: mysql
+    env_file:
+      - .env
+    volumes:
+      - ./databaseinit:/docker-entrypoint-initdb.d
+      - ./mysqlpresistentdata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  backend:
+    image: stevencchang/4640backend:latest
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  frontend:
+    image: stevencchang/4640frontend:latest
+    env_file:
+      - .env
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
